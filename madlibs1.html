@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Madlibs</title>
+     <h1>Madlibs</h1>  
+    <style>
+        body {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+    <body>
+    <p>    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae consectetur nisi. Vivamus ut nibh justo.
+        <span class="paragraph">___________</span> eros odio, tristique eget ultricies et, lacinia sit amet neque. Donec vestibulum bibendum felis at
+        auctor. Sed sed efficitur augue. <span class="paragraph">________</span> efficitur accumsan lectus, eget hendrerit mi malesuada nec. Phasellus
+        egestas massa sed massa laoreet vehicula. Orci varius natoque penatibus et magnis dis parturient montes,
+        nascetur ridiculus mus.</p>
+    <p>
+        In hac habitasse platea dictumst. Aenean eget accumsan metus, vitae scelerisque lectus. Phasellus cursus lorem
+        augue, sit amet tincidunt nulla iaculis sit amet. Vivamus iaculis sodales consectetur. Proin imperdiet odio nec
+        tellus luctus porttitor. Phasellus tristique eget dui ut convallis. Vestibulum suscipit, magna eget maximus
+        condimentum, nunc enim placerat orci, ut dapibus diam diam sed libero. In tincidunt, velit quis suscipit
+        accumsan, sapien lacus consequat arcu, vel venenatis lacus leo in quam. Aliquam euismod nibh nulla.</p>
+                    
+<!-- forms: -->
+    <form>
+        <label>A Noun1:
+            <input type="text" class="noun" value="" />
+        </label>
+        <label>Noun2:
+            <input type="text" class="noun" value="" />
+            </label>
+        <button type="button" id="clickMe"> Click to Execute</button>
+    </form>
+
+</body>
+
+<script>
+//  variables:
+
+    const myButton = document.getElementById("clickMe");
+    const allNouns = document.querySelectorAll(".noun");
+    // const noun1Input = document.getElementById("noun1Input");
+    // const noun2Input = document.getElementById("noun2Input");
+    const allParagraphs = document.querySelectorAll(".paragraph");
+    
+    // const tempArray = [ 
+    //     // "updated text for paragraph1",
+    //     // "updated text for paragraph2",
+    //     // "updated text for paragraph3",
+    //     // "updated text for paragraph4"
+// ]
+    // 
+// functions:
+function parseUserInput(paragraphs) {
+    const arrayOfValues = [];
+    paragraphs.forEach(function(paragraph) {
+        arrayOfValues.push(paragraph.value);
+    })
+    return arrayOfValues;
+}
+ 
+// allNouns.forEach(function (paragraph, index) {
+    //   paragraph.innerHTML = tempArray[index];
+//  })
+myButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    const userInputArray = parseUserInput(allNouns);
+    console.log(userInputArray)
+    allParagraphs.forEach(function(paragraph, index){
+        // allNouns.innerHTML = input.value;
+        paragraph.innerHTML = userInputArray[index];
+    })
+});
+
+</script>
+
+</html>
